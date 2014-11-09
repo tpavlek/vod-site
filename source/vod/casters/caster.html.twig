@@ -1,0 +1,16 @@
+---
+layout: default
+title: Casters
+generator: [vods_caster_index, pagination]
+pagination:
+    provider: page.caster_vods
+    max_per_page: 3
+---
+{% block title %}{{ page.title }} VODs cast by {{ page.caster }}{% endblock %}
+{% block content %}
+    {% set year = '0' %}
+    <h2>VODs cast by <em>{{ page.caster }}</em></h2>
+    {% for vod in page.pagination.items %}
+        {% include 'vod_instance' with {'vod':vod} %}
+    {% endfor %}
+{% endblock content %}

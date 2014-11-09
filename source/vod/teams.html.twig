@@ -1,0 +1,30 @@
+---
+layout: default
+title: Teams
+use:
+- vods_teams
+---
+
+<article>
+    <h1>List of Teams</h1>
+    <table class="pure-table">
+        <thead>
+        <tr>
+            <th>Team</th>
+            <th># of VODs</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for team,vods in data.vods_teams %}
+                <tr>
+                    <td>
+                        <a href="{{ site.url }}/vod/teams/{{ team }}" class="tag tag-{{ loop.index % 8 }}">{{ team }}</a>
+                    </td>
+                    <td>
+                        {{ vods|length }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</article>

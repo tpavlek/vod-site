@@ -1,0 +1,16 @@
+<a href="{{ site.url }}/vod/casters/{{ caster|url_encode(true) }}">
+    <div class="person">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <img src="/img/casters/{{ caster|lower }}.jpg" />
+            </div>
+            <div class="pure-u-1-2">
+                <h2>{{ caster }}</h2>
+                {% if vods is defined %}
+                    <p>Matches Cast: {{ vods|length }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</a>

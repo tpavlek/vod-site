@@ -1,0 +1,27 @@
+---
+layout: default
+title: Tournaments
+use:
+- vods_tournaments
+---
+<article>
+    <h1>Tournaments</h1>
+    <table class="pure-table">
+        <thead>
+            <tr>
+                <th>Tournament</th>
+                <th># of VODs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tournament,vods in data.vods_tournaments %}
+                <tr>
+                    <td>
+                        <a href="{{ site.url }}/vod/tournaments/{{ tournament }}">{{ tournament }}</a>
+                    </td>
+                    <td>{{ vods|length }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</article>

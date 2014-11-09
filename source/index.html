@@ -1,0 +1,18 @@
+---
+layout: default
+title: Home
+generator: pagination
+pagination:
+    provider: data.vods
+    max_per_page: 3
+use:
+    - vods
+---
+
+{% for vod in page.pagination.items %}
+    {% include 'vod_instance' with {'vod':vod} %}
+{% endfor %}
+
+{% for tag,vods in data.vods_tags %}
+    <a href="{{ site.url }}/vods/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>
+{% endfor %}

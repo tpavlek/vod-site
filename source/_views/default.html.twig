@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+    <!-- TODO -->
+
+    <!-- Styles -->
+    <link href="/css/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap sidebar-bg">
+    <div class="content-wrapper">
+        {% block content_wrapper %}{% block content %} {% endblock %}{% endblock %}
+        {% if page.pagination.previous_page or page.pagination.next_page %}
+            <nav class="post-controls">
+                {% if page.pagination.previous_page %}
+                <a href="{{ site.url }}{{ page.pagination.previous_page.url }}" class="pure-button right">
+                    Newer VODs
+                </a>
+                {% endif %}
+                {% if page.pagination.next_page %}
+                <a href="{{ site.url }}{{ page.pagination.next_page.url }}" class="pure-button left">
+                    Older VODs
+                </a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </div>
+
+    <div class="pure-menu pure-menu-open sidebar">
+        <!--<img src="{{ site.url }}/img/crayon-portrait.png" />-->
+        <a href="{{ site.url }}"><h1>{{ site.title }}</h1></a>
+        <br />
+        <ul>
+            <li>
+                <a href="{{ site.url}}/index.html">Home</a>
+            </li>
+        </ul>
+        <hr />
+        <h2>View by:</h2>
+        <ul>
+            <li {{ page.url == '/vod/tags' ? 'class="active"' : '' }}>
+                <a href="{{ site.url }}/vod/teams">Teams</a>
+            </li>
+            <li {{ page.url == '/vod/casters' ? 'class="active"' : '' }}>
+                <a href="{{ site.url }}/vod/casters">Casters</a>
+            </li>
+            <li>
+                <a href="{{ site.url }}/vod/tournaments">Tournaments</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer l-box is-centered">
+        &copy; Troy Pavlek 2014 | <a href="https://twitter.com/troypavlek">@troypavlek</a>
+    </div>
+</div>
+
+{% block scripts %}
+{% endblock %}
+
+{% if site.google_analytics_tracking_id %}
+
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '{{site.google_analytics_tracking_id}}', 'auto');
+    ga('send', 'pageview');
+</script>
+{% endif %}
+</body>
+</html>

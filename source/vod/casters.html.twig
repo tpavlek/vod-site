@@ -1,0 +1,13 @@
+---
+layout: default
+title: Casters
+use:
+- vods_casters
+---
+
+<h2>Casters</h2>
+<div>
+    {% for caster,vods in data.vods_casters %}
+        {% include 'caster' with {'caster':caster,'vods':vods} %}
+    {% endfor %}
+</div>

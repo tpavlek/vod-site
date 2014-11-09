@@ -1,0 +1,16 @@
+{
+    "name": "tpavlek/vod-site",
+    "description": "A static site to house VODs for the Starcraft 2 Community Team League",
+    "type": "sculpin-skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Troy Pavlek",
+            "email": "troy@depotwarehouse.net",
+            "homepage": "http://tpavlek.me"
+        }
+    ],
+    "config": {
+        "component-dir": "source/components"
+    }
+}

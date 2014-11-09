@@ -1,0 +1,13 @@
+sculpin_content_types:
+  vods:
+    layout: vod
+    type: path
+    permalink: vod/:year/:month/:day/:filename/
+    path: _vods
+    singular_name: vod
+    taxonomies:
+      - casters
+      - teams
+      - tournaments
+
+    enabled: true

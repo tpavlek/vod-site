@@ -1,0 +1,40 @@
+---
+layout: default
+title: Archive
+generator: [vods_tournament_index, pagination]
+pagination:
+    provider: page.tournament_vods
+---
+{% block title %}{{ page.title }} Vods from tournament: <em>{{ page.tournament }}</em>{% endblock %}
+{% block content %}
+    {% set year = '0' %}
+    <h2>Posts with team: <em>{{ page.team }}</em></h2>
+    {% for vod in page.pagination.items %}
+        {% set this_year %}{{ vod.date | date("Y") }}{% endset %}
+        {% if year != this_year %}
+            {% set month = '0' %}
+            {% set year = this_year %}
+        {% endif %}
+        {% set this_month %}{{ vod.date | date("F") }}{% endset %}
+        {% if month != this_month %}
+            {% set month = this_month %}
+            <h3>{{ month }} {{ year }}</h3>
+        {% endif %}
+        <article class="drop-shadow-z-2">
+            <div><a href="{{ site.url }}{{ vod.url }}">{{ vod.title }}</a></div>
+        </article>
+    {% endfor %}
+
+    <div>
+        {% if page.pagination.previous_page or page.pagination.next_page %}
+            <nav class="article clearfix">
+                {% if page.pagination.previous_page %}
+                    <a class="previous" href="{{ site.url }}{{ page.pagination.previous_page.url }}" title="Previous Page"><span class="title">Previous Page</span></a>
+                {% endif %}
+                {% if page.pagination.next_page %}
+                    <a class="next" href="{{ site.url }}{{ page.pagination.next_page.url }}" title="Next Page"><span class="title">Next Page</span></a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </div>
+{% endblock content %}
