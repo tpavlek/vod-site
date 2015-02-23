@@ -1,0 +1,7 @@
+{
+    "require": {
+        "league/url": "~3.2",
+        "symfony/var-dumper": "~2.6",
+        "vkbansal/frontmatter": "~1.3"
+    }
+}
