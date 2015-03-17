@@ -14,6 +14,6 @@ gulp.task('styles', function() {
         .pipe(sass({ style: "expanded" }))
         .pipe(concat('all.css'))
         .pipe(autoprefix('last 2 versions'))
-        .pipe(minifyCSS())
+        .pipe(minifyCSS({aggressiveMerging: false }))
         .pipe(gulp.dest('./source/css/'))
 });
