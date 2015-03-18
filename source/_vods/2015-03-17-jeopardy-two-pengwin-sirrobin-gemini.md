@@ -8,7 +8,7 @@ teams:
     - 'SirRobin'
 tournaments:
     - Jeopardy
-video: 'TgGS-hwinUs'
+video: 'l164sMixh14'
 ---
 
 In the second episode of Starcraft Jeopardy, the contestants do much better.
