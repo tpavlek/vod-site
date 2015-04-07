@@ -11,3 +11,5 @@ sculpin_content_types:
       - tournaments
 
     enabled: true
+  posts:
+    enabled: false

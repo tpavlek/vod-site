@@ -6,10 +6,10 @@ var sass = require('gulp-sass');
 
 gulp.task('styles', function() {
     return gulp.src([
-        'resources/css/font-awesome.min.css',
+        'resources/css/fonts.css',
         'resources/css/pure.min.css',
         'resources/css/grids-responsive.min.css',
-        'resources/sass/style.scss'
+        'resources/scss/style.scss'
     ])
         .pipe(sass({ style: "expanded" }))
         .pipe(concat('all.css'))
