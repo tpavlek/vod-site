@@ -10,7 +10,11 @@ use:
 ---
 
 {% for vod in page.pagination.items %}
-    {% include 'vod_instance' with {'vod':vod} %}
+    {% if "Jeopardy" in vod.tournaments %}
+        {% include 'vod_jeopardy' with {'vod':vod} %}
+    {% else %}
+        {% include 'vod_instance' with {'vod':vod} %}
+    {% endif %}
 {% endfor %}
 
 {% for tag,vods in data.vods_tags %}

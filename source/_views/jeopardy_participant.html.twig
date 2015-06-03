@@ -1,0 +1,16 @@
+<a href="{{ site.url }}/vod/teams/{{ team|url_encode(true) }}">
+    <div class="person">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <img src="https://sc2ctl.com/img/jeopardy/contestants/{{ team|lower }}.jpg" />
+            </div>
+            <div class="pure-u-1-2">
+                <h2>{{ team }}</h2>
+                {% if vods is defined %}
+                    <p>Participated in: {{ vods|length }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</a>

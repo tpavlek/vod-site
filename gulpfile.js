@@ -9,7 +9,7 @@ gulp.task('styles', function() {
         'resources/css/fonts.css',
         'resources/css/pure.min.css',
         'resources/css/grids-responsive.min.css',
-        'resources/scss/style.scss'
+        'resources/sass/style.scss'
     ])
         .pipe(sass({ style: "expanded" }))
         .pipe(concat('all.css'))

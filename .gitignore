@@ -3,3 +3,4 @@ output_dev/
 output_prod/
 .idea/
 vendor/
+.sculpin
