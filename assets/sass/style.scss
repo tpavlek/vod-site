@@ -1,0 +1,346 @@
+@import "vars";
+@import "forms";
+@import "tags";
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Changes font for pure grids */
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: 'Lato', sans-serif;
+}
+
+html { height: 100%; }
+
+body {
+    line-height: 1.6em;
+    font-size: 16px;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: $heading-color;
+}
+
+article {
+  background: floralwhite;
+  display:block;
+  padding:1em;
+  margin-top:1em;
+
+  @extend .drop-shadow-z-2;
+
+  img {
+    max-width: 100%;
+    max-height: 50vh;
+  }
+}
+
+article.jeopardy-vod {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px yellow !important;
+  position: relative;
+  background:transparent;
+  z-index: 2;
+
+  h2 { color: whitesmoke; }
+
+  .summary {
+    background-color: rgba(beige, 0.5);
+    padding: 1rem;
+    margin-right: 2rem;
+  }
+
+  .article-wrapper {
+    content: "";
+    background-image: url('/img/jeopardy_bg.png');
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.home-menu.pure-menu-open {
+  padding: 0.5em;
+  text-align: center;
+  box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+  height: 62px;
+  background: $primary-color;
+
+  ul {
+    float: right;
+
+    li a {
+      color: $inverted-text-color;
+      font-size: 120%;
+    }
+
+    li a:hover {
+      background: none;
+    }
+  }
+
+}
+
+.pure-menu.pure-menu-open.sidebar {
+  background: $primary-color;
+  border: none;
+  width:20rem;
+  padding:0 0 50px 0;
+  height: 100%;
+  color: whitesmoke;
+  line-height: 1.8em;
+  position:fixed;
+  left:0;
+  top:0;
+
+  a { text-decoration: none; }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: 0 25px 0 45px;
+
+
+    a {
+      text-decoration: none;
+      font-size:150%;
+    }
+  }
+
+  li:hover { background: #497EB3;  cursor: pointer; }
+  p { padding: 20px; }
+  h1, h2, h3, h4 { color:whitesmoke; padding-left:0.5em; }
+  h1 { margin: 0; padding: 0.67em; background: darken($primary-color, 10%) }
+  h3 {
+    margin-bottom: 0;
+    padding: 0 25px 0 45px;
+    color:#FFDB05;
+  }
+
+  a {
+    padding: 0;
+    color: inherit;
+  }
+
+  a:hover {
+    background: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  hr {
+    $lightened-primary-color: lighten($primary-color, 20%);
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, $lightened-primary-color, rgb(36, 86, 135.75), $lightened-primary-color);
+    background-image:    -moz-linear-gradient(left, $lightened-primary-color, rgb(36, 86, 135.75), $lightened-primary-color);
+    background-image:     -ms-linear-gradient(left, $lightened-primary-color, rgb(36, 86, 135.75), $lightened-primary-color);
+    background-image:      -o-linear-gradient(left, $lightened-primary-color, rgb(36, 86, 135.75), $lightened-primary-color);
+  }
+
+}
+
+.splash-container {
+  background: url("/img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  z-index: 1;
+  overflow:hidden;
+
+  height: 50%;
+  top: 0;
+  left: 0;
+
+  .splash {
+    width: 80%;
+    height: 70%;
+    margin: auto;
+    position:absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    /* This is the main heading that appears on the splash section */
+    .splash-head {
+      font-size: 50px;
+      font-weight: 900;
+      color: white;
+      padding: 1em 1.6em;
+      line-height: 1em;
+    }
+
+    /* This is the subheading that appears on the splash section */
+    .splash-subhead {
+      color: white;
+      letter-spacing: 0.05em;
+      font-size:30px;
+      font-weight: 500;
+    }
+
+  }
+}
+
+/* We wrap everything so that it's offset by menu height */
+.wrap {
+    min-height: 100%;
+    position:relative;
+    padding-bottom:57px;
+    background-color: $background-color;
+  width: 100%;
+}
+
+.sidebar-bg {
+    background-image: linear-gradient( $primary-color 100%, $primary-color 100%);
+    background-size: 320px 1px;
+    background-repeat: repeat-y;
+}
+
+.content-wrapper {
+  /* scroll-over effect */
+  z-index: 2;
+
+  /*height: calc(50% - 57px);*/
+  width: 100%;
+  padding: 1rem;
+  padding-left: 21rem;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+
+
+.person {
+  @extend .drop-shadow-z-1;
+  padding: 0.5em;
+  margin-bottom:0.5rem;
+  background: $secondary-color;
+  color: $inverted-text-color;
+
+  img {
+    max-width: 60%;
+    max-height:200px;
+    margin: auto;
+  }
+}
+
+.jeopardy-vod .person {
+  background: floralwhite;
+  color: black;
+
+  h2 {
+    color: black;
+  }
+}
+
+.drop-shadow-z-1 {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+.drop-shadow-z-2 {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.drop-shadow-z-3 {  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24); }
+
+nav.post-controls {
+    margin-top:1em;
+
+  .left {
+    float: left;
+  }
+  .right {
+    float:right;
+  }
+
+  .pure-button {
+    @extend .drop-shadow-z-3;
+    background-color: $navigation-color;
+    color: $inverted-text-color;
+  }
+}
+
+.pure-table {
+  background: white;
+}
+
+.is-centered {
+    text-align: center;
+}
+
+.l-box {
+    padding: 1rem;
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: #111;
+    color: whitesmoke;
+    bottom:0;
+    position:absolute;
+    width:100%;
+}
+
+.error {
+    background: #C93C3C;
+    text-align: center;
+    color: #f5f5f5;
+    font-size: 110%;
+    padding:1em;
+}
+
+.error ul {
+    list-style: none;
+}
+
+@media (max-width: 48em) {
+
+    .pure-menu-open.pure-menu.sidebar {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position:relative;
+        height: auto;
+        width: 100%;
+    }
+    .sidebar p {
+        padding: 0 20px;
+    }
+
+    .pure-menu-open.pure-menu.sidebar img { display: none; }
+
+    .wrap { padding-bottom: 0; }
+    .footer { position: relative; }
+
+    /** We want to remove the sidebar */
+    .sidebar-bg { background-image: none; }
+    .content-wrapper { margin-left: 1rem; }
+
+
+
+    /* We decrease the body font size */
+    body {
+        font-size: 13px;
+    }
+}
